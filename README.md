@@ -1,16 +1,17 @@
-# cadastro_produtos_teste2
+# Cadastro de Produtos – Teste de Desenvolvimento
 
-A new Flutter project.
+Este projeto foi desenvolvido como parte de um **teste de desenvolvimento**, consistindo em uma aplicação desktop desenvolvida em Flutter, utilizando SQLite como banco de dados local, para realizar o cadastro de produtos com controle de operações através de triggers no banco de dados.
 
-## Getting Started
+O sistema permite inserir, atualizar, listar e excluir produtos, registrando automaticamente todas as operações (INSERT, UPDATE e DELETE) em uma tabela de logs, conforme solicitado no teste.
 
-This project is a starting point for a Flutter application.
+🛠️ Tecnologias Utilizadas
 
-A few resources to get you started if this is your first Flutter project:
+Flutter (Desktop – Windows)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Dart
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+SQLite
+
+sqflite / sqflite_common_ffi
+
+DB Browser for SQLite (para verificação dos dados)
