@@ -1,6 +1,5 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 
 class DatabaseHelper {
@@ -17,14 +16,21 @@ class DatabaseHelper {
   }
 
   static Future<Database> _initDatabase() async {
-    final Directory directory = await getApplicationDocumentsDirectory();
-    final String path = join(directory.path, _databaseName);
 
-    return await openDatabase(
-      path,
-      version: _databaseVersion,
-      onCreate: _onCreate,
-    );
+  final exePath = Platform.resolvedExecutable;
+
+  // Pasta onde está o executável
+  final exeDir = dirname(exePath);
+
+  // Banco na mesma pasta do .exe
+  final dbPath = join(exeDir, 'produtos.db');
+
+  return await openDatabase(
+    dbPath,
+    version: _databaseVersion,
+    onCreate: _onCreate,
+  );
+
   }
 
 

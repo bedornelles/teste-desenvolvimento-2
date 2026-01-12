@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'database/database_helper.dart';
+import 'package:flutter/services.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -212,6 +213,9 @@ Future<void> carregarProdutos() async {
               controller: codigoController,
               enabled: codigoEmEdicao == null,
               keyboardType: TextInputType.number,
+              inputFormatters: [
+                FilteringTextInputFormatter.digitsOnly,
+              ],
               decoration: const InputDecoration(
                 labelText: 'Código',
                 border: OutlineInputBorder()
@@ -247,7 +251,7 @@ Future<void> carregarProdutos() async {
               const SizedBox(width: 16),
 
               ElevatedButton(
-                onPressed: excluirProduto,
+                onPressed: codigoEmEdicao == null ? null : excluirProduto,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red,
                 ),
